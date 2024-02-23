@@ -15,6 +15,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 const persistConfig = {
   key: "contactsItem",
   storage,
+  blacklist: ["items", "page"],
 };
 const persistedReducer = persistReducer(persistConfig, usersReducer);
 

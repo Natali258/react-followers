@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers, updateUsers } from "./operations";
+import { changePage, fetchUsers, updateUsers } from "./operations";
 
 const initialState = {
   items: [],
   followers: [],
   loading: false,
   error: null,
+  page: 1,
 };
 
 const usersSlice = createSlice({
@@ -17,24 +18,27 @@ const usersSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = [...state.items, ...action.payload];
         state.loading = false;
       })
       .addCase(updateUsers.fulfilled, (state, action) => {
         state.items = state.items.map((el) =>
           el.id === action.payload.id ? { ...action.payload } : el
         );
-        console.log(state.followers.includes(action.payload.id));
         state.followers.includes(action.payload.id)
           ? (state.followers = state.followers.filter((follower) => {
               return Number(follower) !== Number(action.payload.id);
             }))
           : state.followers.push(action.payload.id);
+      })
+      .addCase(changePage, (state, action) => {
+        state.page = action.payload;
       });
   },
 });
 
 export const selectUsers = (state) => state.users.items;
+export const selectPage = (state) => state.users.page;
 export const selectFollowers = (state) => state.users.followers;
 export const selectIsLoading = (state) => state.users.loading;
 export const selectError = (state) => state.users.error;

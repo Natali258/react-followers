@@ -73,6 +73,7 @@ export const StyleBtn = styled.button`
   width: 196px;
   height: 50px;
   border: none;
+  cursor: pointer;
 
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -90,6 +91,7 @@ export const StyleBtnUnFollow = styled.button`
   width: 196px;
   height: 50px;
   border: none;
+  cursor: pointer;
 
   font-family: "Montserrat", sans-serif;
   font-weight: 600;

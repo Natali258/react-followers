@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { fetchUsers, updateUsers } from "../../redux/users/operations";
+import React from "react";
+import { updateUsers } from "../../redux/users/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFollowers, selectUsers } from "../../redux/users/slice";
 import {
@@ -20,9 +20,7 @@ import image1 from "../../images/image 1.png";
 
 export const CardsList = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+
   const usersItem = useSelector(selectUsers);
   function addFollower(id, user) {
     dispatch(updateUsers({ id, followers: user.followers + 1 }));
@@ -37,7 +35,7 @@ export const CardsList = () => {
         {usersItem.map((item) => (
           <StyleCardsLi key={item.id}>
             <StyleLogoContainer>
-              <Icon name="logoCards" /* className={s.iconCards} size="20" */ />
+              <Icon name="logoCards" />
             </StyleLogoContainer>
             <StyleImageContainer>
               <StyleImage>
