@@ -2,8 +2,21 @@ import React, { useEffect } from "react";
 import { fetchUsers, updateUsers } from "../../redux/users/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFollowers, selectUsers } from "../../redux/users/slice";
-import { StyleCardsContainer, StyleCardsLi } from "./CardsList.styled";
+import {
+  StyleAvatarContainer,
+  StyleBtn,
+  StyleBtnUnFollow,
+  StyleCardsContainer,
+  StyleCardsLi,
+  StyleImage,
+  StyleImageContainer,
+  StyleLine,
+  StyleLogoContainer,
+  StyleTextFollowers,
+  StyleTextTweets,
+} from "./CardsList.styled";
 import { Icon } from "../Icon/Icon";
+import image1 from "../../images/image 1.png";
 
 export const CardsList = () => {
   const dispatch = useDispatch();
@@ -23,15 +36,27 @@ export const CardsList = () => {
       <ul>
         {usersItem.map((item) => (
           <StyleCardsLi key={item.id}>
-            <Icon name="logoCards" /* className={s.iconCards} size="20" */ />
-            <p>{item.followers} followers</p>
-            <p>{item.tweets} tweets</p>
+            <StyleLogoContainer>
+              <Icon name="logoCards" /* className={s.iconCards} size="20" */ />
+            </StyleLogoContainer>
+            <StyleImageContainer>
+              <StyleImage>
+                <source srcSet={`${image1}`} type="image/png" />
+                <img src={image1} alt="Users photos" />
+              </StyleImage>
+            </StyleImageContainer>
+            <StyleAvatarContainer></StyleAvatarContainer>
+            <StyleLine></StyleLine>
+            <StyleTextTweets>{item.tweets} tweets</StyleTextTweets>
+            <StyleTextFollowers>{item.followers} followers</StyleTextFollowers>
             {!usersFollowers.includes(item.id) ? (
-              <button onClick={() => addFollower(item.id, item)}>Follow</button>
+              <StyleBtn onClick={() => addFollower(item.id, item)}>
+                Follow
+              </StyleBtn>
             ) : (
-              <button onClick={() => removeFollower(item.id, item)}>
+              <StyleBtnUnFollow onClick={() => removeFollower(item.id, item)}>
                 Following
-              </button>
+              </StyleBtnUnFollow>
             )}
           </StyleCardsLi>
         ))}
