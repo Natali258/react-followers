@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
 export const StyleCardsContainer = styled.div`
-  position: relative;
   width: 100%;
   background-color: white;
 `;
+export const StyleCardsList = styled.ul`
+  padding: 0;
+  margin: 80px 0 50px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+`;
 export const StyleCardsLi = styled.li`
+  position: relative;
   list-style-type: none;
   border-radius: 20px;
   width: 380px;
@@ -28,7 +38,7 @@ export const StyleLogoContainer = styled.div`
 `;
 export const StyleAvatarContainer = styled.div`
   position: absolute;
-  left: 33%;
+  left: 50%;
   transform: translate(-50%, -19%);
   width: 80px;
   height: 80px;
@@ -36,6 +46,14 @@ export const StyleAvatarContainer = styled.div`
   background-color: var(--main-color);
   box-shadow: inset 0 4px 3px 0 #fbf8ff, 0 4px 4px 0 rgba(0, 0, 0, 0.06),
     inset 0 -2px 4px 0 #ae7be3;
+`;
+export const StyleAvatarImg = styled.img`
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  left: 50%;
+  transform: translate(-50%, 14%);
+  border-radius: 50%;
 `;
 export const StyleLine = styled.div`
   width: 100%;

@@ -18,7 +18,7 @@ const usersSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.items = [...state.items, ...action.payload];
+        state.items = action.payload;
         state.loading = false;
       })
       .addCase(updateUsers.fulfilled, (state, action) => {

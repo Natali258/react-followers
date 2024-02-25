@@ -1,29 +1,16 @@
-import { useEffect } from "react";
-import { CardsList } from "./components/CardsList/CardsList";
-import { useDispatch, useSelector } from "react-redux";
-import { selectPage } from "./redux/users/slice";
-import { changePage, fetchUsers } from "./redux/users/operations";
+import { Route, Routes } from "react-router-dom";
+import { HomePage } from "./pages/HomePage/HomePage";
 
-function App() {
-  const dispatch = useDispatch();
-  const nextPage = useSelector(selectPage);
+import FollowersPage from "./pages/FollowersPage/FollowersPage";
 
-  useEffect(() => {
-    dispatch(fetchUsers(nextPage));
-  }, [dispatch, nextPage]);
-
+export const App = () => {
   return (
-    <div className="App">
-      <CardsList />
-      <button
-        onClick={() => {
-          dispatch(changePage(nextPage + 1));
-        }}
-      >
-        Load more...
-      </button>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="tweets" element={<FollowersPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Routes>
+    </>
   );
-}
-
-export default App;
+};

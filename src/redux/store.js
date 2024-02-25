@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import persistReducer from "redux-persist/es/persistReducer";
+import { filterValueReducer } from "./filterSlice/filterSlice";
 
 const persistConfig = {
   key: "contactsItem",
@@ -21,6 +22,7 @@ const persistedReducer = persistReducer(persistConfig, usersReducer);
 
 export const store = configureStore({
   reducer: {
+    filter: filterValueReducer,
     users: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
