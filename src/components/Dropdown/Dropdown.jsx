@@ -25,7 +25,6 @@ export const Dropdown = () => {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    console.log(option);
     dispatch(changeFilter(option.value));
     setIsOpen(false);
   };

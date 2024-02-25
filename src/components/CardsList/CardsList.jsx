@@ -56,7 +56,7 @@ export const CardsList = () => {
             </StyleLogoContainer>
             <StyleImageContainer>
               <StyleImage>
-                <source srcSet={`${image1}`} type="image/png" />
+                <source src={`${image1}`} type="image/png" />
                 <img src={image1} alt="Users photos" />
               </StyleImage>
             </StyleImageContainer>

@@ -19,11 +19,9 @@ export const updateUsers = createAsyncThunk(
   "users/addFollowers",
   async ({ id, followers }, thunkAPI) => {
     try {
-      console.log(followers);
       const { data } = await usersAPI.put(`/users/${id}`, {
         followers: followers,
       });
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
