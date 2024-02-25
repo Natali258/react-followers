@@ -11,7 +11,7 @@ import { App } from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/react-followers">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
