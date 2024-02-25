@@ -16,7 +16,7 @@ Pagination Tweets are displayed in sets of three cards per page.
 
 "Load more" button is available at the bottom of the user list. Clicking this button dynamically loads the next set of three cards.
 
-Technologies used
+Technologies used:
 The Redux Toolkit
 Axios
 Styled-components
